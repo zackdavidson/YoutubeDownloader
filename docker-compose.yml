@@ -1,0 +1,54 @@
+version: '2.1'
+services:
+  website:
+    build: .
+    ports:
+      - $WEBSITE_PORT:5004
+    environment:
+      - "ASPNETCORE_ENVIRONMENT=${WEBSITE_ENVIRONMENT}"
+      - "ASPNETCORE_URLS=${ASPNETCORE_URLS}"
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - "${WEBSITE_SECRETS}:/etc/yt-dl/secrets.json"
+    networks:
+      production:
+        ipv4_address: 192.169.5.50
+  
+  db:
+    image: 'mysql:latest'
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=$MYSQL_PASSWORD
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 2s
+      retries: 10
+    volumes:
+      - /opt/mysql-data:/var/lib/mysql
+    networks:
+      production:
+        ipv4_address: 192.169.5.51
+  
+  redis:
+    image: 'redis:6.2.6-alpine3.15'
+    ports:
+      - 6379:6379
+    environment:
+      - REDIS_PASSWORD=$REDIS_PASSWORD
+    restart: always
+    networks:
+      production:
+        ipv4_address: 192.169.5.52
+
+
+
+networks:
+  production:
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.169.0.0/16              
+              
