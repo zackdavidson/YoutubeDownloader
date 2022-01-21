@@ -1,0 +1,27 @@
+{
+  "name": "WebApi",
+  "version": "1.0.0",
+  "description": "This will contain the build script and those good things",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "zackdavidson",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.1.0",
+    "file-system": "^2.2.2",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^5.0.0",
+    "gulp-terser": "^2.0.1",
+    "sass": "^1.42.1",
+    "toastr": "^2.1.4"
+  },
+  "devDependencies": {
+    "font-awesome": "^4.7.0",
+    "gulp-strip-comments": "^2.5.2",
+    "yargs": "^17.0.1"
+  }
+}

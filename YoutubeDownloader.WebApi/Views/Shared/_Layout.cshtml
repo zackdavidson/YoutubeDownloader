@@ -1,0 +1,36 @@
+﻿@using Microsoft.Extensions.Configuration
+@inject IConfiguration _conf
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>@ViewData["Title"] - @_conf["WebsiteName"]</title>
+    
+    @if (_conf["production"] == "false")
+    {
+        <link rel="stylesheet" href="/static/styles.css?t=@DateTime.Now.ToBinary()"/>
+    }
+    else
+    {
+        <link rel="stylesheet" href="/static/styles.min.css"/>
+        
+    }
+    
+</head>
+<body>
+@RenderBody()
+@await RenderSectionAsync("Scripts", required: false)
+
+
+@if (_conf["production"] == "false")
+{
+    <link rel="stylesheet" href="/static/scripts.js?t=@DateTime.Now.ToBinary()"/>
+}
+else
+{
+    <link rel="stylesheet" href="/static/scripts.min.js"/>
+}
+
+</body>
+</html>
