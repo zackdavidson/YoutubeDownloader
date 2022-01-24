@@ -1,0 +1,19 @@
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration _config
+<header>
+    <div class="logo">
+        <a href="/home">
+            <h1 class="logo">@_config["WebsiteName"]</h1>
+        </a>
+    </div>
+    <nav class="navigation">
+        
+    </nav>
+    <div class="right-side" style="margin-right: 10px">
+        <div class="style-mode">
+            <input id="theme-changer" type="checkbox" class="switch" checked="true" onclick="theme.changeMode()">
+            <label for="theme-changer" id="theme-changer-label">Dark</label>
+        </div>
+    </div>
+</header>
+ 

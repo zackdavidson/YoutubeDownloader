@@ -4,15 +4,19 @@ const cleanCSS = require('gulp-clean-css');
 const sass = require('gulp-sass')(require('sass'));
 const terser = require('gulp-terser');
 var strip = require('gulp-strip-comments');
+var ts = require('gulp-typescript');
 
 // TODO: implement typescript
 
 // Packs the javascript files to a standard 
 gulp.task('js:pack', () => {
     return gulp.src([
-        `node_modules/jquery/dist/jquery.min.js`,
-        `node_modules/toastr/toastr.js`,
-        `Views/**/*.js`])
+        `Views/**/*.ts`])
+        .pipe(ts(
+            {
+                allowJs: true
+            } 
+        ))
         .pipe(concat('scripts.js'))
         .pipe(gulp.dest(`StaticFiles/`));
 })
@@ -25,9 +29,15 @@ gulp.task('fonts', () => {
 gulp.task('js:minify', () => {
     return gulp.src([
         `node_modules/jquery/dist/jquery.min.js`,
-        `node_modules/toastr/toastr.js`,
-        `Views/**/*.js`,
-        `Views/Shared/**/*.js`])
+        `node_modules/toastr/build/toastr.min.js`,
+        `node_modules/bootstrap/dist/js/bootstrap.min.js`,
+        `Views/**/*.ts`,
+        `Views/Shared/**/*.ts`])
+        .pipe(ts(
+            {
+                allowJs: true
+            }
+        ))
         .pipe(strip())
         .pipe(concat('scripts.min.js'))
         .pipe(terser())
@@ -60,12 +70,10 @@ gulp.task('build:all', gulp.series('build:local', 'build:prod'));
 // Watches for local changes and builds scss to css and javascript to js
 gulp.task('watch:local', () => {
     gulp.watch([
-        `Views/**/*.scss`,
-        `Views/Shared/**/*.scss`], gulp.series('scss:pack'));
+        `Views/**/*.scss`], gulp.series('scss:pack'));
 
     gulp.watch([
-        `Views/**/*.js`,
-        `Views/Shared/**/*.js`], gulp.series('js:pack'));
+        `Views/**/*.ts`], gulp.series('js:pack'));
 });
 
 

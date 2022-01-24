@@ -1,0 +1,280 @@
+.input {
+  padding: 10px;
+  border-radius: 8px;
+  background-color: var(--secondary-background-color);
+  border: 1px solid var(--border-color);
+  color: var(--primary-text-color);
+  box-shadow: none;
+  transition: 200ms all;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0px 0px 0px 3px rgba(var(--primary-color-values), 0.4);
+    border-color: var(--primary-color);
+  }
+  &::placeholder {
+    color: var(--border-color);
+  }
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-animation: autofill 0s forwards;
+  animation: autofill 0s forwards;
+}
+
+@keyframes autofill {
+  100% {
+    background: transparent;
+    color: inherit;
+  }
+}
+
+@-webkit-keyframes autofill {
+  100% {
+    background: transparent;
+    color: inherit;
+  }
+}
+.block-level {
+  width: 100%;
+  margin-left: auto;
+  display: block;
+  margin-right: auto;
+}
+
+.btn {
+  padding: 10px;
+  border-radius: 8px;
+  border: 2px solid var(--primary-color);
+  transition: 200ms all;
+  cursor: pointer;
+  text-align: center;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0px 0px 0px 3px rgba(var(--primary-color-values), 0.4);
+    border-color: var(--primary-color);
+  }
+
+  &.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    &:hover {
+      background-color: var(--primary-color-lighter);
+      border-color: var(--primary-color-lighter);
+    }
+  }
+
+  &.btn-danger {
+    background-color: var(--danger-color);
+    border-color: var(--danger-color);
+    color: white;
+    &:hover {
+      background-color: var(--danger-color-lighter);
+      border-color: var(--danger-color-lighter);
+    }
+    &:focus {
+      box-shadow: 0px 0px 0px 3px rgba(var(--danger-color-values), 0.4);
+    }
+  }
+
+  &.btn-large {
+    font-size: 1.2em;
+    font-weight: 500;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  &.btn-medium {
+    font-size: 1.1em;
+    font-weight: 500;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+}
+
+.btn-outline-primary {
+  border-color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  background: transparent;
+  &:hover {
+    background: var(--primary-color);
+    color: white;
+  }
+}
+
+
+.input-error {
+  border-color: var(--danger-color);
+}
+
+.btn-outline-danger {
+  border-color: var(--danger-color);
+  border: 2px solid var(--danger-color);
+  color: var(--danger-color);
+  background: transparent;
+  &:hover {
+    background: var(--danger-color);
+    color: white;
+  }
+  &:focus {
+    outline: none;
+    box-shadow: 0px 0px 0px 3px rgba(var(--danger-color-values), 0.4);
+    border-color: var(--danger-color);
+  }
+}
+
+
+.form-group {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.style-mode {
+  input[type="checkbox"] {
+    border: 1px solid rgb(255, 255, 255);
+    background: rgb(255, 255, 255);
+    &:checked {
+      border: 1px solid rgb(22, 27, 40);
+      background: rgb(22, 27, 40);
+    }
+  }
+}
+
+@supports (-webkit-appearance: none) or (-moz-appearance: none) {
+  input[type="checkbox"],
+  input[type="radio"] {
+    --active: var(--secondary-background-color);
+    --active-inner: var(--primary-color);
+    --border: #bbc1e1;
+    --background: #fff;
+    --disabled: #f6f8ff;
+    --disabled-inner: var(--primary-color);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    height: 21px;
+    outline: none;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    margin: 0;
+    cursor: pointer;
+    border: var(--radio-border-color-unchecked);
+    background: var(--radio-background-unchecked);
+
+    transition: background 0.3s, border-color 0.3s, box-shadow 0.2s;
+    &:after {
+      content: "";
+      display: block;
+      left: 0;
+      top: 0;
+      position: absolute;
+      transition: transform var(--d-t, 0.3s) var(--d-t-e, ease), opacity var(--d-o, 0.2s);
+    }
+    &:checked {
+      border: var(--radio-border-color-checked);
+      background: var(--radio-background-checked);
+      --d-o: 0.3s;
+      --d-t: 0.6s;
+      --d-t-e: cubic-bezier(0.2, 0.85, 0.32, 1.2);
+    }
+    &:disabled {
+      --radio-background: var(--disabled);
+      cursor: not-allowed;
+      opacity: 0.9;
+      &:checked {
+        --radio-background: var(--disabled-inner);
+        --radio-border: var(--border);
+      }
+      & + label {
+        cursor: not-allowed;
+      }
+    }
+    &:hover {
+      &:not(:checked) {
+        &:not(:disabled) {
+          --radio-border: var(--border-hover);
+        }
+      }
+    }
+    &:focus {
+      box-shadow: 0 0 0 var(--focus);
+    }
+    &:not(.switch) {
+      width: 21px;
+      &:after {
+        opacity: var(--o, 0);
+      }
+      &:checked {
+        --o: 1;
+      }
+    }
+    & + label {
+      font-size: 14px;
+      line-height: 21px;
+      display: inline-block;
+      vertical-align: top;
+      cursor: pointer;
+      margin-left: 4px;
+    }
+  }
+  input[type="checkbox"] {
+    &:not(.switch) {
+      border-radius: 7px;
+      &:after {
+        width: 5px;
+        height: 9px;
+        border: 2px solid var(--active-inner);
+        border-top: 0;
+        border-left: 0;
+        left: 7px;
+        top: 4px;
+        transform: rotate(var(--r, 20deg));
+      }
+      &:checked {
+        --r: 43deg;
+      }
+    }
+    &.switch {
+      width: 38px;
+      border-radius: 11px;
+      &:after {
+        left: 2px;
+        top: 3px;
+        border-radius: 50%;
+        width: 15px;
+        height: 15px;
+        background: var(--ab, var(--border));
+        transform: translateX(var(--x, 0));
+      }
+      &:checked {
+        --ab: var(--active-inner);
+        --x: 17px;
+      }
+      &:disabled {
+        &:not(:checked) {
+          &:after {
+            opacity: 0.6;
+          }
+        }
+      }
+    }
+  }
+  input[type="radio"] {
+    border-radius: 50%;
+    &:after {
+      width: 19px;
+      height: 19px;
+      border-radius: 50%;
+      background: var(--active-inner);
+      opacity: 0;
+      transform: scale(var(--s, 0.7));
+    }
+    &:checked {
+      --s: 0.5;
+    }
+  }
+}

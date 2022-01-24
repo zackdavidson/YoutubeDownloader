@@ -1,6 +1,6 @@
 using NUnit.Framework;
 
-namespace YoutubeDownloader.Common.Tests
+namespace YoutubeDownloader.YoutubeDlProcessor
 {
     public class Tests
     {

@@ -1,0 +1,7 @@
+@{
+    ViewData["Title"] = "Home";
+}
+@await Html.PartialAsync("~/Views/Components/_Header.cshtml")
+<div class="home-input-container">
+    @await Html.PartialAsync("~/Views/Components/_UploadTextBox.cshtml")
+</div>

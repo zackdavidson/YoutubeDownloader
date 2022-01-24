@@ -9,6 +9,8 @@ using YoutubeDownloader.WebApi.Models;
 
 namespace YoutubeDownloader.WebApi.Controllers
 {
+    [Route("/")]
+    [Route("/home")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -18,20 +20,11 @@ namespace YoutubeDownloader.WebApi.Controllers
             _logger = logger;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            return View("~/Views/Layouts/Home/Home.cshtml");
         }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel {RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier});
-        }
+        
     }
 }

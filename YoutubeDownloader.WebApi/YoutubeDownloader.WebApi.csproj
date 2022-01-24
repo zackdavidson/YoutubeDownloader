@@ -6,13 +6,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Views\Components" />
-      <Folder Include="Views\Layouts\Home" />
-      <Folder Include="Views\Scripts" />
-      <Folder Include="Views\Styles" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\YoutubeDownloader.Common\YoutubeDownloader.Common.csproj" />
       <ProjectReference Include="..\YoutubeDownloader.Persistence\YoutubeDownloader.Persistence.csproj" />
     </ItemGroup>
@@ -51,6 +44,15 @@
       <_ContentIncludedByDefault Remove="wwwroot\lib\jquery\dist\jquery.min.js" />
       <_ContentIncludedByDefault Remove="wwwroot\lib\jquery\dist\jquery.min.map" />
       <_ContentIncludedByDefault Remove="wwwroot\lib\jquery\LICENSE.txt" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <TypeScriptCompile Include="Views\Scripts\Index.ts" />
+      <TypeScriptCompile Include="Views\Scripts\ThemeModule.ts" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.13" />
     </ItemGroup>
 
 </Project>
