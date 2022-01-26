@@ -1,12 +1,11 @@
-using System;
 using System.Threading.Tasks;
 using YoutubeDLSharp;
 using YoutubeDLSharp.Metadata;
 using YoutubeDownloader.Common;
 
-namespace YoutubeDownloader.Persistence.YoutubeDl
+namespace YoutubeDownloader.YoutubeDl
 {
-    public class YoutubeVideoService : IYoutubeVideoService
+    public class YoutubeMetadataService : IYoutubeMetadataService
     {
         public async Task<VideoData> GetYoutubeMeta(string url)
         {
@@ -17,6 +16,14 @@ namespace YoutubeDownloader.Persistence.YoutubeDl
             await youtubeDl.SetMaxNumberOfProcesses(8);
             var here = await youtubeDl.RunVideoDataFetch(url);
             return here.Data;
+        }
+
+
+        public async Task DownloadThumbnail(string thumbnailUrl, string videoId)
+        {
+            //TODO: check an image already exists
+            
+            // Get a stream of the thumbail data
         }
     }
 }

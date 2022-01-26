@@ -8,4 +8,8 @@
       <PackageReference Include="YoutubeDLSharp" Version="0.4.1" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\YoutubeDownloader.Common\YoutubeDownloader.Common.csproj" />
+    </ItemGroup>
+
 </Project>

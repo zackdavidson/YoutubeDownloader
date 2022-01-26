@@ -8,6 +8,7 @@
     <ItemGroup>
       <ProjectReference Include="..\YoutubeDownloader.Common\YoutubeDownloader.Common.csproj" />
       <ProjectReference Include="..\YoutubeDownloader.Persistence\YoutubeDownloader.Persistence.csproj" />
+      <ProjectReference Include="..\YoutubeDownloader.YoutubeDL\YoutubeDownloader.YoutubeDL.csproj" />
     </ItemGroup>
 
     <ItemGroup>
@@ -53,6 +54,10 @@
 
     <ItemGroup>
       <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.13" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.13">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
     </ItemGroup>
 
 </Project>

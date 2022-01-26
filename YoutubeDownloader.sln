@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YoutubeDownloader.Persisten
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YoutubeDownloader.Persistence.Tests", "YoutubeDownloader.Persistence.Tests\YoutubeDownloader.Persistence.Tests.csproj", "{DED8E3AD-5C04-410F-8DCB-0A29BAE1D741}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YoutubeDownloader.YoutubeDL", "YoutubeDownloader.YoutubeDL\YoutubeDownloader.YoutubeDL.csproj", "{A05DF444-541E-4D33-9540-6435592B8122}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{DED8E3AD-5C04-410F-8DCB-0A29BAE1D741}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DED8E3AD-5C04-410F-8DCB-0A29BAE1D741}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DED8E3AD-5C04-410F-8DCB-0A29BAE1D741}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A05DF444-541E-4D33-9540-6435592B8122}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A05DF444-541E-4D33-9540-6435592B8122}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A05DF444-541E-4D33-9540-6435592B8122}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A05DF444-541E-4D33-9540-6435592B8122}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

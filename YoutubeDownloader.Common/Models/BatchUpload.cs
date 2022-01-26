@@ -14,8 +14,5 @@ namespace YoutubeDownloader.Common.Models
         [Column("created")]
         public DateTime Created { get; set; }
 
-        [Column("address")]
-        public string Address { get; set; }
-
     }
 }
