@@ -42,7 +42,7 @@ gulp.task('js:minify', () => {
         .pipe(concat('scripts.min.js'))
         .pipe(terser())
         .pipe(gulp.dest(`StaticFiles/`));
-})
+});
 
 gulp.task('scss:pack', () => {
     return gulp.src([`Views/Shared/**/*.scss`, `Views/**/*.scss`])

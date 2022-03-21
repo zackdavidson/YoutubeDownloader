@@ -52,5 +52,17 @@ namespace YoutubeDownloader.Common.Models
             return meta;
         }
 
+        public string GetDurationFormatted()
+        {
+            TimeSpan time = TimeSpan.FromSeconds(Duration);
+
+            if (time.Hours < 1)
+            {
+                return time.ToString(@"mm\:ss");
+            }
+            
+            return time.ToString(@"hh\:mm\:ss");
+        }
+        
     }
 }

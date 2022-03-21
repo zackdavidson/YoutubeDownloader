@@ -38,10 +38,14 @@ namespace YoutubeDownloader.Persistence.Repositories.Batch
                 foreach (var format in video.Formats)
                 {
                     if (format.Extension != "mp4") continue;
-                    if (format.FileSize == 0) continue;
+                    if (format.AudioCodec == null || format.AudioCodec == "none") continue;
                     
                     formats.Add(VideoMetaFormat.Build(videoMeta.Id, format));
                 }
+
+
+                formats = GetBestFormats(formats).ToList();
+                
 
                 _context.BatchUploadLinks.Add(new BatchUploadLink()
                 {
@@ -87,7 +91,6 @@ namespace YoutubeDownloader.Persistence.Repositories.Batch
             return model;
         }
 
-
         private List<VideoData> GetVideoData(List<string> urls)
         {
             var allTasks = new List<Task<VideoData>>();
@@ -95,8 +98,20 @@ namespace YoutubeDownloader.Persistence.Repositories.Batch
             {
                 allTasks.Add(_youtubeMetadata.GetYoutubeMeta(url));
             }
+            
+            // ReSharper disable once CoVariantArrayConversion
             Task.WaitAll(allTasks.ToArray());
             return allTasks.Select(task => task.Result).ToList();
+        }
+
+        private IEnumerable<VideoMetaFormat> GetBestFormats(List<VideoMetaFormat> formats)
+        {
+            var newFormats = formats
+                .GroupBy(f => f.Quality, 
+                    (key, value) => 
+                        value.OrderByDescending(e => e.FileSize).First())
+                .ToList();
+            return newFormats;
         }
         
     }

@@ -1,7 +1,7 @@
 <form action="/api/batch" method="post">
   @Html.AntiForgeryToken()
   <div class="input-group mb-3">
-    <input value="https://www.youtube.com/watch?v=heJBwBUStXU" type="text" class="form-control" name="urls" placeholder="Enter Url..." aria-label="Youtube Url" aria-describedby="button-addon2">
+    <input type="text" class="form-control" name="urls" placeholder="Enter Url..." aria-label="Youtube Url" aria-describedby="button-addon2">
     <button class="btn btn-primary" type="submit" id="button-addon2">Continue</button>
   </div>
 </form>

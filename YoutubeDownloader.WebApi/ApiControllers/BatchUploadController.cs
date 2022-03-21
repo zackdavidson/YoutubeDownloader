@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using YoutubeDownloader.Common.Models;
 using YoutubeDownloader.Common.ViewModels;
@@ -13,7 +14,7 @@ namespace YoutubeDownloader.WebApi.ApiControllers
 
         private readonly IBatchUploadService _batch;
 
-        public BatchUploadController(IYoutubeMetadataService metadataService, IBatchUploadService batch)
+        public BatchUploadController(IBatchUploadService batch)
         {
             _batch = batch;
         }
@@ -23,10 +24,10 @@ namespace YoutubeDownloader.WebApi.ApiControllers
         [ValidateAntiForgeryToken]
         public ActionResult<BatchUpload> UploadBatch([FromForm] string urls)
         {
-            var urlList = new List<string>();
-            urlList.Add(urls);
-            var upload = _batch.CreateBatchUpload(urlList);
-            return Ok(upload);
+            var urlList = urls.Split(", ");
+            var upload = _batch.CreateBatchUpload(urlList.ToList());
+            
+            return Redirect("/batch/"+upload.Id);
         }
         
         [HttpGet]

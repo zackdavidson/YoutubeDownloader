@@ -1,0 +1,24 @@
+@model YoutubeDownloader.Common.ViewModels.BatchUploadViewModel
+@{
+    ViewData["Title"] = "Batch";
+}
+@await Html.PartialAsync("~/Views/Components/_Header.cshtml")
+<div class="page">
+    <div class="videos">
+        
+        <div class="container">
+            <div class="row">
+                @foreach (var video in Model.VideoMetaViewModels)
+                {
+                    <div class="col-md-4">
+                        @await Html.PartialAsync("~/Views/Components/_VideoViewModel.cshtml", video)
+                    </div>
+                }
+            </div>
+        </div>
+        
+    </div>
+    <div class="queue">
+        <p>Queue TODO</p>
+    </div>
+</div>

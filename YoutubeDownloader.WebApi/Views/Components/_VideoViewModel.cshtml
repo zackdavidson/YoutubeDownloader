@@ -1,0 +1,14 @@
+@model YoutubeDownloader.Common.ViewModels.VideoMetaViewModel
+<div class="video-view main-container">
+    <div class="image-section">
+        <img class="image" src="@Model.ThumbnailLocation" alt="@Model.Meta.VideoTitle's thumbnail"/>
+        <p class="video-title">@Model.Meta.VideoTitle</p>
+        <p class="duration">@Model.Meta.GetDurationFormatted()</p>
+    </div>
+    <div class="formats">
+        @foreach (var format in Model.Formats)
+        {
+            <p>@format.Quality - @format.GetFileSize() - @format.FormatId</p>
+        }
+    </div>
+</div>

@@ -40,6 +40,11 @@ namespace YoutubeDownloader.Common.Models
             format.FileType = d.Extension;
             return format;
         }
+
+        public string GetFileSize()
+        {
+            return (FileSize / 1024 / 1024) + " MB";
+        }
         
     }
 }

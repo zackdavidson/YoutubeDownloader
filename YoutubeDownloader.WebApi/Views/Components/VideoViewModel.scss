@@ -1,0 +1,57 @@
+
+.video-view {
+  border-radius: 8px;
+  overflow: hidden;
+  
+  &.main-container {
+    padding: 0;
+    margin: 0;
+  }
+  .image-section {
+    position: relative;
+    .duration {
+      position: absolute;
+      right: 15px;
+      bottom: 15px;
+      margin: 0;
+      background: #000000ab;
+      backdrop-filter: blur(15px);
+      font-size: 0.9em;
+      font-weight: 500;
+      padding-left: 10px;
+      padding-right: 10px;
+      border-radius: 5px;
+      padding-bottom: 1px;
+      padding-top: 1px;
+      color: white;
+    }
+    .image {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+    }
+    .video-title {
+      position: absolute;
+      top: 10px;
+      left: 11px;
+      font-size: 1.2em;
+      font-weight: 600;
+      z-index: 1;
+      color: white;
+      text-shadow: 0 2px 9px #0000006e;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgb(0,0,0);
+      background: linear-gradient(
+                      180deg
+              , rgba(0,0,0,0.8127626050420168) 0%, rgba(0,0,0,0) 100%);
+      height: 50%;
+    }
+  }
+
+} 

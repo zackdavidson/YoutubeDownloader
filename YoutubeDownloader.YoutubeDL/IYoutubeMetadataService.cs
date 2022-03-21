@@ -8,5 +8,7 @@ namespace YoutubeDownloader.YoutubeDl
         public Task<VideoData> GetYoutubeMeta(string url);
 
         public Task DownloadThumbnail(string thumbnailUrl, string videoId);
+
+        public byte[] GetThumbnailBytes(string fileLocation);
     }
 }
