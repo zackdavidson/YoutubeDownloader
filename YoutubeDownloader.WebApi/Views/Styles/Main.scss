@@ -4,7 +4,7 @@ html {
   --border-color: #e4e4ea;
   --placeholder-color: rgb(170, 170, 190);
   --secondary-background-color: rgb(255, 255, 255);
-  --secondary-background-shadow: 0 0 40px 0 rgba( 94, 92, 154, .06);
+  --secondary-background-shadow: 0 0 40px 0 rgba( 94, 92, 154, .1);
 
   --listing-border-bottom-color: #ececec;
 
@@ -85,7 +85,7 @@ html[data-theme='dark'] {
   --primary-text-color: rgb(215, 217, 224);
   --secondary-text-color: #7a7c9b;
   --secondary-background-color: rgb(29, 35, 51);
-  --secondary-background-shadow: 0 0 40px 0 rgba( 0, 0, 0, .02);
+  --secondary-background-shadow: 0 0 40px 0 rgba( 0, 0, 0, .6);
   --border-color: rgb(70, 78, 99);
   --placeholder-color: rgb(74, 74, 94);
   --radio-background-unchecked: rgb(49, 57, 80);

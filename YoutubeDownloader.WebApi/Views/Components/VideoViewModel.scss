@@ -2,10 +2,20 @@
 .video-view {
   border-radius: 8px;
   overflow: hidden;
-  
+  .formats {
+    p {
+      padding: 5px;
+      padding-left: 15px;
+      margin: 0;
+      &:nth-child(even) {
+        background: rgba(0, 0, 0, 0.12);
+      } 
+    }
+  }
   &.main-container {
     padding: 0;
     margin: 0;
+    margin-bottom: 20px;
   }
   .image-section {
     position: relative;

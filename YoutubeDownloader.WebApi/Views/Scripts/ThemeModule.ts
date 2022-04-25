@@ -9,7 +9,7 @@ const THEME_KEY: string = 'theme-mode';
  *
  * */
 class ThemeModule {
-    
+     
     private darkMode: boolean = true;
     
     constructor() { }

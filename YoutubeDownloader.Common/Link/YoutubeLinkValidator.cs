@@ -6,6 +6,7 @@ namespace YoutubeDownloader.Common.Link
 {
     public class YoutubeLinkValidator : ILinkValidator
     {
+
         public bool Validate(string url)
         {
             if (url == null)

@@ -37,8 +37,7 @@ namespace YoutubeDownloader.Persistence.Repositories.Batch
                 
                 foreach (var format in video.Formats)
                 {
-                    if (format.Extension != "mp4") continue;
-                    if (format.AudioCodec == null || format.AudioCodec == "none") continue;
+                    if (format.Extension != "webm") continue;
                     
                     formats.Add(VideoMetaFormat.Build(videoMeta.Id, format));
                 }

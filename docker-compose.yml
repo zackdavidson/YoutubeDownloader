@@ -1,20 +1,5 @@
 version: '2.1'
 services:
-  website:
-    build: .
-    ports:
-      - $WEBSITE_PORT:5004
-    environment:
-      - "ASPNETCORE_ENVIRONMENT=${WEBSITE_ENVIRONMENT}"
-      - "ASPNETCORE_URLS=${ASPNETCORE_URLS}"
-    depends_on:
-      db:
-        condition: service_healthy
-    volumes:
-      - "${WEBSITE_SECRETS}:/etc/yt-dl/secrets.json"
-    networks:
-      production:
-        ipv4_address: 192.169.5.50
   
   db:
     image: 'mysql:latest'
